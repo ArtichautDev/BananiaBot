@@ -1,0 +1,6 @@
+
+# Ignorer le fichier config.js
+config.js
+
+# Ignorer le répertoire node_modules
+node_modules/

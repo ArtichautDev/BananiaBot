@@ -1,0 +1,30 @@
+{
+  "name": "bananiabot",
+  "version": "0.0.1",
+  "description": "Discord bot by ArtichautDev",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtichautLearnCode/bananiabot.git"
+  },
+  "keywords": [
+    "BOT",
+    "Discord",
+    "ArtichautDev"
+  ],
+  "author": "ArtichautDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArtichautLearnCode/bananiabot/issues"
+  },
+  "homepage": "https://github.com/ArtichautLearnCode/bananiabot#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "minecraft-server-util": "^5.4.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  }
+}

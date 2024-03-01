@@ -117,10 +117,54 @@ module.exports = {
                 const buttonCollector = interaction.channel.createMessageComponentCollector({ filter, max: 1, time: 60000 }); // 60 secondes pour voter
         
                 buttonCollector.on('collect', async i => {
-                    await i.update({ content: `Vote reçu pour retirer le mute de ${targetUser.username}. Traitement en cours...`, components: [] });
-                    targetMember.voice.setMute(false, 'Mute retiré suite au vote de demute');
-                    interaction.followUp({ content: `${targetUser.username} n'est plus en muet suite au vote.`, components: [] });
+                    // Prépare l'embed et les boutons pour le vote de demute
+                    const voteDemuteEmbed = new EmbedBuilder()
+                        .setColor('#0099ff')
+                        .setTitle('Vote pour retirer le Mute Vocal')
+                        .setDescription(`Votez pour retirer le mute de ${targetUser.username}.`);
+                
+                    const voteRow = new ActionRowBuilder()
+                        .addComponents(
+                            new ButtonBuilder()
+                                .setCustomId('demute_yes')
+                                .setLabel('Oui')
+                                .setStyle(ButtonStyle.Success),
+                            new ButtonBuilder()
+                                .setCustomId('demute_no')
+                                .setLabel('Non')
+                                .setStyle(ButtonStyle.Danger),
+                        );
+                
+                    // Mettre à jour le message avec l'embed et les boutons pour le vote de demute
+                    await i.update({ content: 'Un nouveau vote a été lancé pour décider de retirer le mute.', embeds: [voteDemuteEmbed], components: [voteRow] });
+                
+                    // Collecteur pour le vote de demute
+                    const demuteFilter = (interaction) => interaction.customId === 'demute_yes' || interaction.customId === 'demute_no';
+                    const demuteCollector = i.message.createMessageComponentCollector({ filter: demuteFilter, time: 45000 }); // Durée du vote de 45 secondes
+                
+                    let votesYes = 0;
+                    let votesNo = 0;
+                
+                    demuteCollector.on('collect', async vote => {
+                        if (vote.customId === 'demute_yes') {
+                            votesYes++;
+                        } else {
+                            votesNo++;
+                        }
+                        await vote.deferUpdate();
+                    });
+                
+                    demuteCollector.on('end', async collected => {
+                        // Vérifiez si la majorité a voté pour le demute
+                        if (votesYes > votesNo) {
+                            targetMember.voice.setMute(false, 'Mute retiré suite au vote de demute');
+                            await i.followUp({ content: `${targetUser.username} n'est plus en muet suite au vote.`, embeds: [], components: [] });
+                        } else {
+                            await i.followUp({ content: `Le vote pour retirer le mute de ${targetUser.username} n'a pas atteint la majorité. ${targetUser.username} reste en muet.`, embeds: [], components: [] });
+                        }
+                    });
                 });
+                
             }
         });
         

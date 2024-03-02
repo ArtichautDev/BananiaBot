@@ -4,4 +4,4 @@ module.exports = {
     async execute(message) {
     }
 }
-// Copyright © ArtichautDev 2023 All Rights Reserved
+// Copyright © ArtichautDev 2024 All Rights Reserved

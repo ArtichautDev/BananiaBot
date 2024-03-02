@@ -22,3 +22,4 @@ client.on('ready', () => {
     }, 60000); // 60000 ms = 1 minute
 });
 
+// Copyright © ArtichautDev 2024 All Rights Reserved

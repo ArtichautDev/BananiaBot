@@ -23,6 +23,7 @@ client.login(config.app.token);
 
 client.once('ready', async () => {
 	console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({ activities: [{ name: 'La Banania / By @artichautdev' }], status: 'watching' });
     client.config = config
 });
-// Copyright © ArtichautDev 2023 All Rights Reserved
+// Copyright © ArtichautDev 2024 All Rights Reserved

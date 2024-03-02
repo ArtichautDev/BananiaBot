@@ -42,4 +42,4 @@ for (const file of eventFiles) {
         console.log('[LOG] Event', event.name, 'is now ready')
     }
 }
-// Copyright © ArtichautDev 2023 All Rights Reserved
+// Copyright © ArtichautDev 2024 All Rights Reserved

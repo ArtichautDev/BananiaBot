@@ -24,3 +24,5 @@ try {
 } catch (e) {
     if(e) console.error(e)
 }
+
+// Copyright © ArtichautDev 2024 All Rights Reserved

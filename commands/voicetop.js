@@ -38,7 +38,7 @@ module.exports = {
                     .setTitle('Classement Vocal')
                     .setDescription(rankingDescription)
                     .setTimestamp()
-                    .setFooter({ text: 'Classement vocal' });
+                    .setFooter({ text: 'Made With :heart: By @artichautdev' });
 
                 // Recherche du rang de l'utilisateur exécutant la commande
                 const userId = interaction.user.id;
@@ -60,3 +60,4 @@ module.exports = {
         }
     },
 };
+// Copyright © ArtichautDev 2024 All Rights Reserved

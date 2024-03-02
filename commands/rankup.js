@@ -6,6 +6,7 @@ module.exports = {
         .setName('rankup')
         .setDescription('Augmente le score d\'un utilisateur.')
         .addUserOption(option => option.setName('utilisateur').setDescription('L\'utilisateur à rank up.').setRequired(true))
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
         .addIntegerOption(option => option.setName('pourcentage').setDescription('Le pourcentage à ajouter.').setRequired(true)),
     async execute(interaction) {
 
@@ -43,3 +44,4 @@ module.exports = {
         );
     },
 };
+// Copyright © ArtichautDev 2024 All Rights Reserved

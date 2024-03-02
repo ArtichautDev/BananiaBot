@@ -6,6 +6,7 @@ module.exports = {
         .setName('rankdown')
         .setDescription('Diminue le score d\'un utilisateur.')
         .addUserOption(option => option.setName('utilisateur').setDescription('L\'utilisateur à rank down.').setRequired(true))
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
         .addIntegerOption(option => option.setName('pourcentage').setDescription('Le pourcentage à retirer.').setRequired(true)),
     async execute(interaction) {
 
@@ -46,3 +47,4 @@ module.exports = {
         );
     },
 };
+// Copyright © ArtichautDev 2024 All Rights Reserved

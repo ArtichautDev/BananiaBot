@@ -11,10 +11,11 @@ module.exports = {
             const after = Date.now(); // Marque le temps après l'envoi de la réponse
             const roundTripPing = after - before; // Calcule le "ping de commande" en soustrayant before de after
             const ms = roundTripPing/7
-            await interaction.editReply({content: `Ping : ${ms.toFixed(0)} ms.`});
+            await interaction.editReply({content: `Ping : ${ms.toFixed(0)} ms. Made With :heart: By @artichautdev`});
             console.log(`[INFO] ${interaction.user.tag} (${interaction.user.id}) issued command: /ping`);
         } catch (e) {
             console.log(e);
         }
     },
 };
+// Copyright © ArtichautDev 2024 All Rights Reserved

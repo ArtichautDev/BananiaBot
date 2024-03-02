@@ -36,3 +36,4 @@ module.exports = {
         );
     },
 };
+// Copyright © ArtichautDev 2024 All Rights Reserved

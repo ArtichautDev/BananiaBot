@@ -40,7 +40,8 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle('Vote de Mute Vocal (Special Bmolloc)')
             .setDescription(`Votez pour mettre en muet ${targetUser.username} pendant 3 minutes.`)
-            .setFooter({ text: 'Le vote dure 45 secondes ou jusqu\'à ce que tous votent. La majorité l\'emporte.' });
+            .setFooter({ text: 'Le vote dure 45 secondes ou jusqu\'à ce que tous votent. La majorité l\'emporte.' })
+            .setFooter({ text: 'Made With :heart: By @artichautdev' });
 
         // Création des boutons de vote
         const row = new ActionRowBuilder()
@@ -79,6 +80,7 @@ module.exports = {
             let resultEmbed = new EmbedBuilder()
                 .setColor('#0099ff')
                 .setTitle('Résultat du Vote de Mute Vocal')
+                .setFooter({ text: 'Made With :heart: By @artichautdev' })
                 .setDescription(`Résultats du vote pour mettre en muet ${targetUser.username}:\n\nOui: ${votes.yes}\nNon: ${votes.no}`);
         
             let components = []; // Initialise un tableau vide pour les composants
@@ -121,7 +123,8 @@ module.exports = {
                     const voteDemuteEmbed = new EmbedBuilder()
                         .setColor('#0099ff')
                         .setTitle('Vote pour retirer le Mute Vocal')
-                        .setDescription(`Votez pour retirer le mute de ${targetUser.username}.`);
+                        .setDescription(`Votez pour retirer le mute de ${targetUser.username}.`)
+                        .setFooter({ text: 'Made With :heart: By @artichautdev' });
                 
                     const voteRow = new ActionRowBuilder()
                         .addComponents(
@@ -169,4 +172,4 @@ module.exports = {
         });
         
     },
-};
+};// Copyright © ArtichautDev 2024 All Rights Reserved

@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+
 function createProgressBar(score) {
     const totalEmojis = 10;
     const filledEmojiCount = Math.round((score / 100) * totalEmojis);
@@ -12,6 +13,13 @@ module.exports = {
         .setDescription('Affiche le score d\'un utilisateur.')
         .addUserOption(option => option.setName('utilisateur').setDescription('L\'utilisateur à afficher.').setRequired(false)),
     async execute(interaction) {
+        // Vérification du rôle spécifique avant de continuer
+        const targetUser = interaction.options.getMember('utilisateur') || interaction.member;
+        
+        if (targetUser.roles.cache.has('1151536406938796162')) {
+            return interaction.reply({ content: 'Jeune Padawan,amais chef tu ne deviendras, cette commande lâcher tu dois.' });
+        }
+
         const user = interaction.options.getUser('utilisateur') || interaction.user;
 
         client.database.query(
@@ -36,4 +44,3 @@ module.exports = {
         );
     },
 };
-// Copyright © ArtichautDev 2024 All Rights Reserved

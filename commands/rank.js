@@ -17,7 +17,7 @@ module.exports = {
         const targetUser = interaction.options.getMember('utilisateur') || interaction.member;
         
         if (targetUser.roles.cache.has('1151536406938796162')) {
-            return interaction.reply({ content: 'Jeune Padawan,amais chef tu ne deviendras, cette commande lâcher tu dois.' });
+            return interaction.reply({ content: 'Jeune Padawan, jamais chef tu ne deviendras, cette commande lâcher tu dois.' });
         }
 
         const user = interaction.options.getUser('utilisateur') || interaction.user;
